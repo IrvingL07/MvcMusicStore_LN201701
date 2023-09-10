@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MvcMusicStore_LN201701.Models.Genero>
+
+@{
+    ViewBag.Title = "Store";
+}
+
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")"
+          rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")"
+            type="text/javascript"></script>
+</head>
+<body>
+    <div id="header">
+        <h1>
+            ASP.NET MVC MUSIC STORE
+        </h1>
+        <ul id="navlist">
+            <li class="first">
+                <a href="/"
+                   id="current">Home</a>
+            </li>
+            <li>
+                <a href="/Store/">Store</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<h3>Browse Genres</h3>
+<p>
+    Select from @Model.Count()
+    genres:
+</p>
+<ul>
+    @foreach (var genre in Model)
+    {
+        <li>
+           @Html.ActionLink(genre.Name,"Browse", new {genre = genre.Name})  
+        </li>
+    }
+</ul>
+
+
+
+
+
